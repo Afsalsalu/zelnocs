@@ -32,7 +32,32 @@
 	<link rel="stylesheet" href="assets3/css/owl.carousel.css">
 	<link rel="stylesheet" href="assets3/css/main.css">
 </head>
+<style>
+	
+/* WhatsApp Floating Icon */
+.whatsapp_float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 20px;
+    right: 20px;
+    background-color: #25D366;
+    border-radius: 50%;
+    text-align: center;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+    z-index: 1000;
+}
 
+.whatsapp_icon {
+    width: 35px;
+    margin-top: 12px;
+}
+
+.whatsapp_float:hover {
+    transform: scale(1.1);
+    transition: 0.3s ease;
+}
+</style>
 <body>
 
 	<header id="header" id="home">
@@ -863,6 +888,52 @@ The bass is deep, the vocals are clear, and the noise cancellation works better 
 	<script src="assets3/js/parallax.min.js"></script>
 	<script src="assets3/js/mail-script.js"></script>
 	<script src="assets3/js/main.js"></script>
+
+
+	
+     <script>
+        document.querySelector(".review-submit").addEventListener("click", function (e) {
+            e.preventDefault();
+        
+            // Collect values
+            const name = document.getElementById("review-name").value.trim();
+            const email = document.getElementById("review-email").value.trim();
+            const title = document.getElementById("review-title").value.trim();
+            const message = document.getElementById("review-message").value.trim();
+            const files = document.getElementById("review-img").files;
+        
+            // Format WhatsApp message
+            let waMessage = `*New Product Review*\n\n`;
+            waMessage += `*Name:* ${name}\n`;
+            waMessage += `*Email:* ${email}\n`;
+            waMessage += `*Title:* ${title}\n`;
+            waMessage += `*Message:* ${message}\n`;
+        
+            if (files.length > 0) {
+                waMessage += `*Attachments:* ${files.length} file(s) selected (Note: Files cannot be sent via WhatsApp link)\n`;
+            }
+        
+            // WhatsApp number (no '+' or spaces)
+            const phoneNumber = "8714738338"; // Replace with your WhatsApp number
+        
+            // Encode message for URL
+            const encodedMessage = encodeURIComponent(waMessage);
+        
+            // Open WhatsApp
+            window.open(`https://wa.me/${phoneNumber}?text=${encodedMessage}`, "_blank");
+        });
+        </script>
+        
+<!-- WhatsApp Floating Button -->
+<a href="https://wa.me/918921539637" 
+   class="whatsapp_float" 
+   target="_blank" 
+   title="Chat with us on WhatsApp">
+   <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/WhatsApp_icon.png" 
+        alt="WhatsApp" 
+        class="whatsapp_icon">
+</a>
+
 </body>
 
 </html>
