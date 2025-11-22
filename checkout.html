@@ -22,6 +22,8 @@
     <!-- Favicon and Touch Icons  -->
     <link rel="shortcut icon" href="images/logo/favicon.png">
     <link rel="apple-touch-icon-precomposed" href="images/logo/favicon.png">
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
 
 </head>
 
@@ -71,7 +73,7 @@
         <!-- page-title -->
         <div class="tf-page-title">
             <div class="container-full">
-                <div class="heading text-center">Chec Out</div>
+                <div class="heading text-center">Check Out</div>
             </div>
         </div>
         <!-- /page-title -->
@@ -147,7 +149,6 @@
     </button>
 </form>
 
-<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 <script>
     (function() {
         emailjs.init("B3TLWIfLvH5U3JML9"); 
@@ -185,7 +186,11 @@ document.getElementById("checkout-form").addEventListener("submit", function(e){
 
     // SEND EMAIL using EmailJS
     // SEND EMAIL using EmailJS
-    emailjs.send("service_ibz5edb", "template_z5vkj4d", data, "B3TLWIfLvH5U3JML9")
+    emailjs.send(
+    "service_zl580we",
+    "template_z5vkj4d",
+    data,
+    "B3TLWIfLvH5U3JML9")
     .then(function(response) {
 
         Swal.fire({
