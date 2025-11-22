@@ -71,7 +71,7 @@
         <!-- page-title -->
         <div class="tf-page-title">
             <div class="container-full">
-                <div class="heading text-center">Check Out</div>
+                <div class="heading text-center">Chec Out</div>
             </div>
         </div>
         <!-- /page-title -->
@@ -147,61 +147,80 @@
     </button>
 </form>
 
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<script>
+    (function() {
+        emailjs.init("B3TLWIfLvH5U3JML9"); 
+    })();
+</script>
+
+
 <script>
 document.getElementById("checkout-form").addEventListener("submit", function(e){
     e.preventDefault();
 
-    // **Get form values**
-    const firstName = document.getElementById("first-name").value.trim();
-    const lastName = document.getElementById("last-name").value.trim();
-    const phone = document.getElementById("phone").value.trim();
-    const altPhone = document.getElementById("alt-phone").value.trim();
-    const email = document.getElementById("email").value.trim();
-    const house = document.getElementById("house").value.trim();
-    const area = document.getElementById("area").value.trim();
-    const pincode = document.getElementById("pincode").value.trim();
-    const state = document.getElementById("state").value.trim();
-    const district = document.getElementById("district").value.trim();
-    const city = document.getElementById("city").value.trim();
-    const landmark = document.getElementById("landmark").value.trim();
+    // Collect form data
+    const data = {
+        first_name: document.getElementById("first-name").value.trim(),
+        last_name: document.getElementById("last-name").value.trim(),
+        phone: document.getElementById("phone").value.trim(),
+        alt_phone: document.getElementById("alt-phone").value.trim(),
+        email: document.getElementById("email").value.trim() || "Not Provided",
+        house: document.getElementById("house").value.trim(),
+        area: document.getElementById("area").value.trim(),
+        pincode: document.getElementById("pincode").value.trim(),
+        state: document.getElementById("state").value.trim(),
+        district: document.getElementById("district").value.trim(),
+        city: document.getElementById("city").value.trim(),
+        landmark: document.getElementById("landmark").value.trim() || "Not Provided"
+    };
 
-    // **Validation**
-    if (!firstName || !lastName || !phone || !altPhone || !house || !area || !pincode || !state || !district || !city) {
-        alert("All fields are required except Email and Landmark!");
-        return;
+    // Validation
+    for (let key in data) {
+        if (key !== 'email' && key !== 'landmark' && !data[key]) {
+            Swal.fire("Missing Field", "Please fill all required fields!", "error");
+            return;
+        }
     }
 
-    // **WhatsApp number (with country code, no +)**
-    const whatsappNumber = "918921539637"; //  Include country code (India = 91)
+    // SEND EMAIL using EmailJS
+    // SEND EMAIL using EmailJS
+    emailjs.send("service_ibz5edb", "template_z5vkj4d", data, "B3TLWIfLvH5U3JML9")
+    .then(function(response) {
 
-    // **Create professional message**
-    const message = 
-` *New Order Request*
+        Swal.fire({
+            title: "Order Sent Successfully!",
+            text: "Your order details have been emailed to us.",
+            icon: "success"
+        });
 
+        // ALSO SEND TO WHATSAPP
+        const message =
+    `*New Order Request*
 
-Hello, I would like to place an order. Please find my delivery details below 
+    Name: ${data.first_name} ${data.last_name}
+    Phone: ${data.phone}
+    Alt Phone: ${data.alt_phone}
+    Email: ${data.email}
+    House: ${data.house}
+    Area: ${data.area}
+    City: ${data.city}
+    District: ${data.district}
+    State: ${data.state}
+    Pincode: ${data.pincode}
+    Landmark: ${data.landmark}`;
 
- *Name*: ${firstName} ${lastName}
- *Phone*: ${phone}
- *Alternate Phone*: ${altPhone}
- *Email*: ${email || "Not provided"}
- *House / Building*: ${house}
- *Area / Road*: ${area}
- *City*: ${city}
- *District*: ${district}
- *State*: ${state}
- *Pincode*: ${pincode}
- *Landmark*: ${landmark || "Not provided"}
+        const whatsappNumber = "918921539637";
+        const encodedMessage = encodeURIComponent(message);
+        window.open(`https://wa.me/${whatsappNumber}?text=${encodedMessage}`, "_blank");
 
-Thank you!
-Please confirm my order and delivery details.`;
+    }, function(error) {
+        Swal.fire("Error", "Failed to send email. Try again!", "error");
+    });
 
-    // **Encode and open WhatsApp**
-    const encodedMessage = encodeURIComponent(message);
-    const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
-    window.open(whatsappURL, "_blank");
 });
 </script>
+
 
 
 
