@@ -984,7 +984,15 @@
     .product-img-small::-webkit-scrollbar {
         display: none; /* Chrome, Safari */
     }
+
+    /* Small screen responsive height: 10vh */
+    @media (max-width: 576px) {
+        .product-img-small {
+            height: 13vh !important;
+        }
+    }
 </style>
+
 
                                 <div class="col-12 col-sm-2" data-animate="animate__fadeIn">
                                     <!-- product-img-small start -->
@@ -1320,7 +1328,15 @@
                                         Delivery</a>
                                 </div>
                                 <div class="product-info mst-10" data-animate="animate__fadeIn">
-                                    <!-- x -->
+                                    <div class="product-availability">
+                                        <span class="heading-color heading-weight mer-10">How To Order:</span>
+                                        <a href="#" id="video-trigger">
+                                            <span style="color: green;">Video
+                                                <img src="images/icons/play-svgrepo-com.svg" alt="Video Icon"
+                                                    class="video-icon">
+                                            </span>
+                                        </a>
+                                    </div>
 
                                     <!-- Video Popup Modal -->
                                     <div id="video-modal" class="modal">
