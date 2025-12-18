@@ -201,19 +201,32 @@ document.getElementById("checkout-form").addEventListener("submit", function(e){
 
         // ALSO SEND TO WHATSAPP
         const message =
-    `*New Order Request*
+    `*New Order Received – Zelnocs*
+
+    *Customer Details*
 
     Name: ${data.first_name} ${data.last_name}
     Phone: ${data.phone}
     Alt Phone: ${data.alt_phone}
     Email: ${data.email}
+
+    *Delivery Address*
+    
     House: ${data.house}
     Area: ${data.area}
     City: ${data.city}
     District: ${data.district}
     State: ${data.state}
     Pincode: ${data.pincode}
-    Landmark: ${data.landmark}`;
+    Landmark: ${data.landmark}
+    
+*Order Status*
+Order successfully submitted and awaiting confirmation.
+
+ *Zelnocs Orders Team*  
+Please process this order at the earliest.`;
+
+    
 
         const whatsappNumber = "918921539637";
         const encodedMessage = encodeURIComponent(message);
