@@ -1196,11 +1196,11 @@
                                             <table class="w-100">
                                                 <tbody>
 
-                                                    <tr>
+                                                    <!-- <tr>
                                                         <th class="heading-color ptb-10 plr-15 heading-weight border-full"
                                                             scope="row">Vendor</th>
                                                         <td class="body-color ptb-10 plr-15 border-full">Zelnocs</td>
-                                                    </tr>
+                                                    </tr> -->
 
                                                     <tr>
                                                         <th class="heading-color ptb-10 plr-15 heading-weight border-full"
@@ -1254,7 +1254,7 @@
                                                     <tr>
                                                         <th class="heading-color ptb-10 plr-15 heading-weight border-full"
                                                             scope="row">Play Time</th>
-                                                        <td class="body-color ptb-10 plr-15 border-full">3 Hours</td>
+                                                        <td class="body-color ptb-10 plr-15 border-full">up to 5 Hours</td>
                                                     </tr>
 
                                                     <tr>
