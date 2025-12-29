@@ -649,12 +649,12 @@
                                 <div class="product-price">
 
                                     <div class="tf-product-info-price">
-                                        <div class=" new-price dominant-color font-20 heading-weight text-dark">₹449.00
+                                        <div class=" new-price dominant-color font-20 heading-weight text-dark">₹849.00
                                         </div>
                                         <div
                                             class="old-price heading-color font-20 heading-weight text-decoration-line-through">
                                             ₹2499.00</div>
-                                        <div class="badges-on-sale"><span>82</span>% OFF</div>
+                                        <div class="badges-on-sale"><span> </span>% OFF</div>
                                     </div>
                                 </div>
                             </div>
@@ -671,7 +671,7 @@
                                 </div>
                             </div>
 
-                            <div class="tf-product-info-countdown">
+                            <!-- <div class="tf-product-info-countdown">
                                 <div class="countdown-wrap">
                                     <div class="countdown-title">
                                         <i class="icon-time tf-ani-tada"></i>
@@ -682,7 +682,7 @@
                                             data-labels="Days :,Hours :,Mins :,Secs"></div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
 
                             <!-- <div class="product-info mst-15" data-animate="animate__fadeIn">
                                 <div class="product-stock">
